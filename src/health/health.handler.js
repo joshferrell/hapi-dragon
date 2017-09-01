@@ -2,17 +2,17 @@ import Boom from 'boom';
 
 export const createDependencyHandler = dependencyChecks => (request, reply) => {
     Promise.all(dependencyChecks.map(x => x()))
-        .then(status => {
+        .then((status) => {
             status
                 .filter(({ up }) => !up)
-                .forEach(status => request.log('error', {
-                    msg: `${status.name} is down`,
-                    status
+                .forEach(s => request.log('error', {
+                    msg: `${s.name} is down`,
+                    status: s
                 }));
 
             return reply(status);
         })
-        .catch(err => {
+        .catch((err) => {
             request.log('error', {
                 msg: 'unable to check dependency status',
                 err

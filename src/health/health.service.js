@@ -1,6 +1,5 @@
 import moment from 'moment';
 import cheerio from 'cheerio';
-import { filter } from 'rambda';
 
 export const checkPostgresStatus = (connection, log) => () => {
     const startTime = moment().format('x');
@@ -17,6 +16,7 @@ export const checkPostgresStatus = (connection, log) => () => {
             };
         })
         .catch((err) => {
+            const duration = moment().format('x') - startTime;
             log.error(err, 'unable to ping postgres database');
             return {
                 name: 'postgres',
@@ -27,7 +27,7 @@ export const checkPostgresStatus = (connection, log) => () => {
         });
 };
 
-export const parseImgurStatus = (html) => () => {
+export const parseImgurStatus = (html) => {
     const $ = cheerio.load(html);
     return $('component-inner-container')
         .filter(x => !$(x).hasClass('status-green'))
@@ -35,7 +35,7 @@ export const parseImgurStatus = (html) => () => {
         .length;
 };
 
-export const checkImgurStatus = (url, log) => {
+export const checkImgurStatus = (url, log) => () => {
     const startTime = moment().format('x');
 
     return fetch(url)
@@ -44,7 +44,7 @@ export const checkImgurStatus = (url, log) => {
                 res.html() :
                 Promise.reject('imgur is down')
         ))
-        .then(html => {
+        .then((html) => {
             const duration = startTime - moment().format('x');
             return parseImgurStatus(html) ?
                 Promise.resolve({
@@ -56,6 +56,7 @@ export const checkImgurStatus = (url, log) => {
                 Promise.reject('free api is down');
         })
         .catch((err) => {
+            const duration = moment().format('x') - startTime;
             log.error(err, 'unable to connect to imgur');
             return {
                 name: 'imgur',
