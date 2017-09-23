@@ -1,6 +1,6 @@
 # Hapi Dragon
 
-[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?style=flat-square)](https://webhooks.gitter.im/e/a429df6e06dd24cff4c2)
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?style=flat-square)](https://gitter.im/peace-dragon/hapi-dragon)
 
 An API that allows users to upload cards to a database for Peace Dragons.
 

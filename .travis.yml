@@ -1,9 +1,12 @@
 language: node_js
 node_js:
     - "8"
-script:
-    - yarn lint
-    - yarn test:ci
+jobs:
+    include:
+        - stage: test
+            script:
+                - yarn lint
+                - yarn test:ci
 notifications:
   webhooks:
     urls:
