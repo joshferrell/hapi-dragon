@@ -3,14 +3,13 @@ node_js:
     - "8"
 
 jobs:
-    include:
-        - stage: unit tests
-        script:
-            - yarn lint
-            - yarn test:ci
-        - stage: smoke tests
-        script:
-            - echo one
+  include:
+    - stage: unit tests
+      script:
+        - yarn lint
+        - yarn test:ci
+    - stage: smoke tests
+      script: echo one
 
 notifications:
   webhooks:
