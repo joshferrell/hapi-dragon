@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`server configuration should include a server manifest 1`] = `
+Object {
+  "connections": Array [
+    Object {
+      "labels": Array [
+        "api",
+      ],
+      "port": 8000,
+    },
+    Object {
+      "labels": Array [
+        "admin",
+      ],
+      "port": 8001,
+    },
+  ],
+  "registrations": Array [
+    Object {
+      "plugin": "inert",
+    },
+    Object {
+      "plugin": "vision",
+    },
+    Object {
+      "plugin": "hapi-swagger",
+    },
+    Object {
+      "plugin": "./auth.plugin",
+    },
+  ],
+  "server": Object {
+    "cache": "redis",
+  },
+}
+`;
