@@ -1,5 +1,7 @@
 # Hapi Dragon
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/joshferrell/hapi-dragon.svg)](https://greenkeeper.io/)
+
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg?style=flat-square)](https://gitter.im/peace-dragon/hapi-dragon)
 
 An API that allows users to upload cards to a database for Peace Dragons.
