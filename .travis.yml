@@ -5,12 +5,12 @@ node_js:
 jobs:
     include:
         - stage: unit tests
-            script:
-                - yarn lint
-                - yarn test:ci
+        script:
+            - yarn lint
+            - yarn test:ci
         - stage: smoke tests
-            script:
-                - echo one
+        script:
+            - echo one
 
 notifications:
   webhooks:
