@@ -31,7 +31,7 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
-    "boom": "^5.2.0",
+    "boom": "^7.0.0",
     "bunyan": "^1.8.12",
     "cheerio": "^1.0.0-rc.2",
     "dotenv-safe": "^4.0.4",
